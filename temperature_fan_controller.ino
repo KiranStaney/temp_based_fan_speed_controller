@@ -25,7 +25,7 @@ void setup() {
 
 void loop() {
   sensors.requestTemperatures();
-  temperatureC = sensors.getTempCByIndex(0);
+  temperatureC = sensors.getTempCByIndex(0);//arduino reads the temperature
 
   Serial.print("Temperature: ");
   Serial.print(temperatureC);
@@ -33,7 +33,7 @@ void loop() {
 
   // Map temperature (20–60°C) to PWM between 191 (≈9V) and 255 (≈12V)
   int motorSpeed = map(constrain(temperatureC, 20, 60), 20, 60, 191, 255);
-  analogWrite(ENA, motorSpeed);
+  analogWrite(ENA, motorSpeed);//generates pwm signal
 
   Serial.print("Motor Speed (PWM): ");
   Serial.println(motorSpeed);
