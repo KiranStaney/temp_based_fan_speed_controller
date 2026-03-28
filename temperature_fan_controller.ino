@@ -11,6 +11,7 @@ DallasTemperature sensors(&oneWire);
 
 float temperatureC;
 
+//runs once
 void setup() {
   Serial.begin(9600);
   sensors.begin();
@@ -23,6 +24,7 @@ void setup() {
   digitalWrite(IN2, LOW);  // Motor direction
 }
 
+//runs again and again
 void loop() {
   sensors.requestTemperatures();
   temperatureC = sensors.getTempCByIndex(0);//arduino reads the temperature
